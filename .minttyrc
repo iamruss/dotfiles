@@ -1,0 +1,10 @@
+BoldAsFont=-1
+FontHeight=12
+Columns=200
+Rows=48
+Font=Iosevka SS05
+ThemeFile=flat-ui
+Transparency=off
+OpaqueWhenFocused=no
+FontSmoothing=full
+CursorType=block

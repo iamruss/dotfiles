@@ -1,0 +1,5 @@
+alias lss="ls -lhaG"
+alias gss="git status"
+alias gpp="git pull"
+alias gff="git fetch"
+alias gdd="git difftool --dir-diff"

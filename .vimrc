@@ -15,9 +15,6 @@ syntax on
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=-1
-set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
-set t_Co=256
-colorscheme desert
 
 
 " ================ General Config ====================
@@ -99,6 +96,8 @@ Plug 'skammer/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
 Plug 'easymotion/vim-easymotion'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/xoria256.vim'
 call plug#end()
 
 " ================ Scrolling ========================
@@ -111,6 +110,14 @@ set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
+
+"===================Colorscheme=======================
+set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
+set t_Co=256
+set background=light
+"colorscheme solarized
+colorschem xoria256
+"colorscheme desert
 
 imap jj <ESC>
 
@@ -208,3 +215,12 @@ let g:airline#extensions#ale#enabled = 1
 
 "vim-css-color
 let g:cssColorVimDoNotMessMyUpdatetime = 1
+
+nnoremap <F5> "=strftime("%d/%m/%Y %H:%M:%S")<CR>P
+inoremap <F5> <C-R>=strftime("%d/%m/%Y %H:%M:%S")<CR>
+
+noremap <Up>    <Nop>
+noremap <Left>  <Nop>
+noremap <Down>  <Nop>
+noremap <Right> <Nop>
+

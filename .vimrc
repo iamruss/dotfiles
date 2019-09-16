@@ -34,7 +34,22 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 "set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 "set list listchars=tab:\ \ ,trail:·
-set list listchars=tab:>-,trail:·
+"set list listchars=tab:>-,trail:·
+set list listchars=tab:»·,trail:·
+
+"================ Completion =======================
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
@@ -62,22 +77,29 @@ set expandtab
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
-"call plug#begin('~/.vim/plugged')
-"Plug 'lepture/vim-velocity'
-"Plug 'scrooloose/nerdcommenter'
-"Plug 'OmniSharp/omnisharp-vim'
-"Plug 'w0rp/ale'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-vinegar'
-"Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-obsession'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" To install Plug manager:
+"" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+""    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+Plug 'lepture/vim-velocity'
+Plug 'scrooloose/nerdcommenter'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-unimpaired'
-"Plug 'skammer/vim-css-color'
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'groenewege/vim-less'
-"call plug#end()
+Plug 'skammer/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
 
 " ================ Scrolling ========================
 set scrolloff=5         "Start scrolling when we're 3 lines away from margins
@@ -167,9 +189,14 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 " Enable snippet completion
 let g:OmniSharp_want_snippet=1
 
-"CtrlP
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"CtrlP, using git as root marker and ls-files
+"let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"CtrlP no using git ls-files
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+"let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
 
 "Airline
 "let g:airline#extensions#tabline#enabled = 1

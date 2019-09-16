@@ -21,7 +21,6 @@ colorscheme desert
 
 
 " ================ General Config ====================
-
 set ruler
 set number
 set relativenumber
@@ -34,7 +33,22 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 "set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 "set list listchars=tab:\ \ ,trail:·
-set list listchars=tab:>-,trail:·
+"set list listchars=tab:>-,trail:·
+set list listchars=tab:»·,trail:·
+
+"================ Completion =======================
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
@@ -168,9 +182,14 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 " Enable snippet completion
 let g:OmniSharp_want_snippet=1
 
-"CtrlP
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"CtrlP, using git as root marker and ls-files
+"let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"CtrlP no using git ls-files
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+"let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
 
 "Airline
 "let g:airline#extensions#tabline#enabled = 1

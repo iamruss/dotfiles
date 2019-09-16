@@ -195,8 +195,11 @@ let g:OmniSharp_want_snippet=1
 
 "CtrlP no using git ls-files
 let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-"let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+if has("win32")
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+else
+    let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+endif
 
 "Airline
 "let g:airline#extensions#tabline#enabled = 1

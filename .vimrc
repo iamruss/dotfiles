@@ -98,6 +98,7 @@ Plug 'groenewege/vim-less'
 Plug 'easymotion/vim-easymotion'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/xoria256.vim'
+Plug 'adelarsq/vim-matchit'
 call plug#end()
 
 " ================ Scrolling ========================
@@ -202,6 +203,7 @@ let g:OmniSharp_want_snippet=1
 
 "CtrlP no using git ls-files
 let g:ctrlp_working_path_mode = 'a'
+
 if has("win32")
     let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 else
@@ -223,4 +225,28 @@ noremap <Up>    <Nop>
 noremap <Left>  <Nop>
 noremap <Down>  <Nop>
 noremap <Right> <Nop>
+"--- search for help online
+if has("win32")
+    " https://vim.fandom.com/wiki/Online_documentation_for_word_under_cursor
+    function! OnlineDoc()
+        if &ft =~ "cpp"
+            let s:urlTemplate = "http://doc.trolltech.com/4.1/%.html"
+        elseif &ft =~ "ruby"
+            let s:urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
+        elseif &ft =~ "perl"
+            let s:urlTemplate = "http://perldoc.perl.org/functions/%.html"
+        elseif &ft =~ "velocity"
+            let s:urlTemplate = "https://community.telligent.com/search?q=%&group=1773"
+        else
+            return
+        endif
+        let s:browser = "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\""
+        let s:wordUnderCursor = expand("<cword>")
+        let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
+        let s:cmd = "silent !start " . s:browser . " " . s:url
+        execute s:cmd
+    endfunction
+    " Online doc search.
+    map <silent> <M-d> :call OnlineDoc()<CR>
+endif
 

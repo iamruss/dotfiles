@@ -1,0 +1,31 @@
+####################################################################################################
+# this is ignore file for `ag` the silver searcher tool,
+# see https://github.com/ggreer/the_silver_searcher
+# the `ag` tool also reads ignores from .gitignore, so this file contains ignores
+# that should not be ignored by git, but still ignored by `ag`
+####################################################################################################
+*.DotSettings
+*.StyleCop
+*.crunchsolution.cache
+*.dll
+*.gif
+*.jpg
+*.min.css
+*.min.js
+*.pdf
+*.png
+/design
+/development/source/lib/*
+empty.config
+filestorage/*
+infrastructure/*
+packages.config
+tiny_mce/*
+/AppData
+/OneDrive
+/Downloads
+/Favorites
+/Desktop
+/Documents
+ntuser.dat.*
+NTUSER.DAT

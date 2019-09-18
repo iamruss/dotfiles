@@ -198,14 +198,26 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 let g:OmniSharp_want_snippet=1
 
 "CtrlP, using git as root marker and ls-files
-"let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_working_path_mode = 'ra'
 "let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
 "CtrlP no using git ls-files
-let g:ctrlp_working_path_mode = 'a'
+"let g:ctrlp_working_path_mode = 'a'
 
 if has("win32")
-    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+    " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+    if executable('ag')
+      " Use Ag over Grep
+      set grepprg=ag\ --nogroup\ --nocolor
+
+      " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " --ignore filestorage'
+  else
+      let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+
+    endif
+
 else
     let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
 endif

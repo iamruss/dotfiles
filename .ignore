@@ -4,6 +4,8 @@
 # the `ag` tool also reads ignores from .gitignore, so this file contains ignores
 # that should not be ignored by git, but still ignored by `ag`
 ####################################################################################################
+
+*.DAT
 *.DotSettings
 *.StyleCop
 *.crunchsolution.cache
@@ -14,18 +16,22 @@
 *.min.js
 *.pdf
 *.png
+/AppData
+/Desktop
+/Documents
+/Downloads
+/Favorites
+/OneDrive
 /design
 /development/source/lib/*
+/development/tools
+desktop.ini
 empty.config
 filestorage/*
 infrastructure/*
-packages.config
-tiny_mce/*
-/AppData
-/OneDrive
-/Downloads
-/Favorites
-/Desktop
-/Documents
+node_modules
 ntuser.dat.*
-NTUSER.DAT
+obj/*
+packages.config
+packages/*
+tiny_mce/*

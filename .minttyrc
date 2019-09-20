@@ -1,10 +1,13 @@
-BoldAsFont=-1
+BoldAsFont=yes
 FontHeight=12
 Columns=200
 Rows=48
 Font=Iosevka SS05
 ThemeFile=flat-ui
 Transparency=off
-OpaqueWhenFocused=no
+OpaqueWhenFocused=yes
 FontSmoothing=full
 CursorType=block
+AllowBlinking=yes
+Locale=C
+Charset=UTF-8

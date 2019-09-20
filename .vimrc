@@ -115,7 +115,11 @@ set smartcase       " ...unless we type a capital
 "===================Colorscheme=======================
 set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
 set t_Co=256
-set background=light
+set background=dark
+"set background=light
+let g:solarized_hitrail=1    "default value is 0
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibility="high"    "default value is normal
 "colorscheme solarized
 colorschem xoria256
 "colorscheme desert
@@ -237,6 +241,11 @@ noremap <Up>    <Nop>
 noremap <Left>  <Nop>
 noremap <Down>  <Nop>
 noremap <Right> <Nop>
+
+inoremap <Up>    <Nop>
+inoremap <Left>  <Nop>
+inoremap <Down>  <Nop>
+inoremap <Right> <Nop>
 "--- search for help online
 if has("win32")
     " https://vim.fandom.com/wiki/Online_documentation_for_word_under_cursor

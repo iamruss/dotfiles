@@ -92,8 +92,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-unimpaired'
-Plug 'skammer/vim-css-color'
-Plug 'hail2u/vim-css3-syntax'
+"Plug 'skammer/vim-css-color'
+"Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
 Plug 'easymotion/vim-easymotion'
 Plug 'altercation/vim-colors-solarized'
@@ -271,3 +271,6 @@ if has("win32")
     map <silent> <M-d> :call OnlineDoc()<CR>
 endif
 
+
+set colorcolumn=120
+hi ColorColumn ctermbg=darkgrey guibg=grey12

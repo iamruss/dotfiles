@@ -99,6 +99,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'adelarsq/vim-matchit'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " ================ Scrolling ========================

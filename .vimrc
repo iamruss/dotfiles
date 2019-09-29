@@ -114,7 +114,11 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 "===================Colorscheme=======================
-set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
+if has("win32")
+    set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
+elseif has("gui_macvim")
+    set guifont=Iosevka-SS05-Medium:h18
+endif
 set t_Co=256
 set background=dark
 "set background=light

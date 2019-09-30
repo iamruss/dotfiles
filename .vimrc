@@ -83,6 +83,8 @@ nnoremap P P=`]<C-o>
 call plug#begin('~/.vim/plugged')
 Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -115,7 +117,8 @@ set smartcase       " ...unless we type a capital
 
 "===================Colorscheme=======================
 if has("win32")
-    set guifont=Iosevka_SS05:h12:cRUSSIAN:qDRAFT
+    "set guifont=Iosevka_SS05:h14:cRUSSIAN:qDRAFT
+    set guifont=Iosevka_SS05:h14:cRUSSIAN
 elseif has("gui_macvim")
     set guifont=Iosevka-SS05-Medium:h18
 endif
@@ -132,6 +135,18 @@ colorschem xoria256
 imap jj <ESC>
 
 filetype indent plugin on
+
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger='<tab>'  " tried <c-j> and failed too
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:MyUltiSnipsSnippetsHome = fnamemodify(expand("$MYVIMRC"), ":p:h")
+let g:UltiSnipsSnippetDirectories = [ MyUltiSnipsSnippetsHome.'/.dotfiles/UltiSnips', 'UltiSnips']
+let g:UltiSnipsEditSplit="vertical"
+
 let g:OmniSharp_server_stdio = 1
 
 " Timeout in seconds to wait for a response from the server

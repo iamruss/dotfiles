@@ -1,0 +1,61 @@
+snippet s "set variable" b
+#set(\$${1:varName} = "${2:varValue}")
+endsnippet
+
+snippet sid "set UniqueId" b
+#set(\$${1:name}Id = $core_v2_widget.UniqueId('$1'))
+endsnippet
+
+snippet descr "Describe in text format" b
+<pre class="debug">
+$core_v2_utility.Describe(\$${1:var}))
+</pre>
+endsnippet
+
+snippet gfv "description"
+#set(\$${1:name} = $core_v2_page.GetFormValue('$1'))
+endsnippet
+
+snippet descrt "Describe in text format" b
+<pre class="debug">
+	$core_v2_utility.Describe(\$${1:var}, "%{Format = 'text'}"))
+</pre>
+endsnippet
+
+snippet jse "$core_v2_encoding.JavascriptEncode()" i
+$core_v2_encoding.JavascriptEncode($1)
+endsnippet
+
+snippet gr "$core_v2_encoding.JavascriptEncode()" i
+$core_v2_language.GetResource("$1")
+endsnippet
+
+snippet gefu "$core_v2_widget.GetExecutedFileUrl()" i
+$core_v2_widget.GetExecutedFileUrl("$1")
+endsnippet
+
+snippet hae "HtmlAttributeEncode" i
+$core_v2_encoding.HtmlAttributeEncode($1)
+endsnippet
+
+snippet here "Prints HERE in h1 for Debugging"
+<h1>${1:HERE}!</h1>
+endsnippet
+
+snippet reopui "#registerEndOfPageHtml with ui.js" b
+#registerEndOfPageHtml('${1:projectName}.widgets.${2:widgetName}')
+<script type="text/javascript" src="$core_v2_encoding.HtmlAttributeEncode($core_v2_widget.GetFileUrl('${3:ui}.js'))"></script>
+#end
+endsnippet
+
+snippet reopctx "#registerEndOfPageHtml context" b
+#registerEndOfPageHtml()
+<script type="text/javascript">
+	jQuery(function(){
+		jQuery.${1:projectName}.widgets.${2:widgetName}.register({
+			$3
+		});
+	});
+</script>
+#end
+endsnippet

@@ -136,6 +136,13 @@ imap jj <ESC>
 
 filetype indent plugin on
 
+let g:ale_linters = { 'cs': ['OmniSharp']
+            \ ,'javascript': ['eslint']
+            \ }
+if(has('gui_running'))
+    let g:ale_sign_error = '❌'
+    let g:ale_sign_warning = '⚠️'
+endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -165,9 +172,6 @@ set completeopt=longest,menuone,preview
 " Set desired preview window height for viewing documentation.
 " You might also want to look at the echodoc plugin.
 set previewheight=5
-
-" Tell ALE to use OmniSharp for linting C# files, and no other linters.
-let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 " Update semantic highlighting on BufEnter and InsertLeave
 let g:OmniSharp_highlight_types = 2

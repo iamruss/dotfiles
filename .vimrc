@@ -83,7 +83,9 @@ nnoremap P P=`]<C-o>
 call plug#begin('~/.vim/plugged')
 Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
+if(has("gui_running"))
 Plug 'SirVer/ultisnips'
+endif
 Plug 'honza/vim-snippets'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
@@ -135,10 +137,18 @@ colorschem xoria256
 imap jj <ESC>
 
 filetype indent plugin on
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'cs':           ['OmniSharp'],
+\   'javascript':   ['eslint'],
+\ }
+let g:ale_fixers = {
+\   'javascript':   ['prettier'],
+\   'less':         ['prettier'],
+\   'css':          ['prettier'],
+\}
 
-let g:ale_linters = { 'cs': ['OmniSharp']
-            \ ,'javascript': ['eslint']
-            \ }
 if(has('gui_running'))
     let g:ale_sign_error = '❌'
     let g:ale_sign_warning = '⚠️'
@@ -257,9 +267,6 @@ let g:airline#extensions#ale#enabled = 1
 
 "vim-css-color
 let g:cssColorVimDoNotMessMyUpdatetime = 1
-
-nnoremap <F5> "=strftime("%d/%m/%Y %H:%M:%S")<CR>P
-inoremap <F5> <C-R>=strftime("%d/%m/%Y %H:%M:%S")<CR>
 
 noremap <Up>    <Nop>
 noremap <Left>  <Nop>

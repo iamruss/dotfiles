@@ -1,24 +1,32 @@
+snippet nvr "add new version flag" b
+## REVIEW: this file is used in new version
+endsnippet
+
 snippet s "set variable" b
-#set(\$${1:varName} = "${2:varValue}")
+#set(\$${1:varName} = ${2:varValue})
+endsnippet
+
+snippet wid "widget Unique Id" i
+\$core_v2_widget.UniqueId('${1:name}')
 endsnippet
 
 snippet sid "set UniqueId" b
 #set(\$${1:name}Id = $core_v2_widget.UniqueId('$1'))
 endsnippet
 
-snippet descr "Describe in text format" b
+snippet descr "Describe in format" b
 <pre class="debug">
-$core_v2_utility.Describe(\$${1:var}))
+$core_v2_utility.Describe(\$${1:var})
 </pre>
 endsnippet
 
-snippet gfv "description"
+snippet gfv "Get form value"
 #set(\$${1:name} = $core_v2_page.GetFormValue('$1'))
 endsnippet
 
 snippet descrt "Describe in text format" b
 <pre class="debug">
-	$core_v2_utility.Describe(\$${1:var}, "%{Format = 'text'}"))
+	$core_v2_utility.Describe(\$${1:var}, "%{Format = 'text'}")
 </pre>
 endsnippet
 

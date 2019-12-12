@@ -5,4 +5,4 @@ alias gf="git fetch"
 alias gd="git difftool --dir-diff"
 alias gg="git grep -I -n -C2"
 alias glo="git log --oneline"
-
+alias agw="ag -G \"\\.(xml|vm|js)\""

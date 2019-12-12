@@ -105,6 +105,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'plasticboy/vim-markdown'
+Plug 'gikmx/vim-ctrlposession'
 call plug#end()
 
 " ================ Scrolling ========================
@@ -265,6 +266,7 @@ endif
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#keymap#enabled = 0
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#obsession#enabled = 1
 
 "vim-css-color
 let g:cssColorVimDoNotMessMyUpdatetime = 1
@@ -303,6 +305,8 @@ if has("win32")
     map <silent> <M-d> :call OnlineDoc()<CR>
 endif
 
+"CtrlP Obsession mapping
+nnoremap <Leader>ss :CtrlPObsession<CR>
 
 set colorcolumn=120
 hi ColorColumn ctermbg=darkgrey guibg=grey12

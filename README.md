@@ -1,2 +1,2 @@
 # dotfiles
-various dotfiles I use across my environments/devices
+Various dotfiles I use across my environments/devices

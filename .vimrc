@@ -102,9 +102,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'ap/vim-css-color'
+Plug 'dhruvasagar/vim-prosession'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'skammer/vim-css-color'
 "Plug 'hail2u/vim-css3-syntax'
@@ -115,6 +117,7 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'plasticboy/vim-markdown'
 Plug 'gikmx/vim-ctrlposession'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " ================ Scrolling ========================
@@ -319,3 +322,16 @@ nnoremap <Leader>ss :CtrlPObsession<CR>
 
 set colorcolumn=120
 hi ColorColumn ctermbg=darkgrey guibg=grey12
+" ----- easymotion settings ------
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" " `f{char}{label}`
+nmap f <Plug>(easymotion-overwin-f)
+" " Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+let g:NERDCreateDefaultMappings = 0
+let g:NERDToggleCheckAllLines = 1
+map <Leader>cc <plug>NERDCommenterToggle
+

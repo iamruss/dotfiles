@@ -2,6 +2,11 @@
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
+"include local tweaks (e.g. path for specific python versions like
+""set pythonthreedll=python39.dll
+""set pythonthreehome=C:\\Python39\\
+source ~/.localrc.vim
+
 lan mes en_US.UTF-8
 set langmenu=en
 set encoding=utf-8
@@ -75,7 +80,7 @@ nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" To install Plug manager:
+"" To install Plug manager: (on PC, replace ".vim" with "vimfiles")
 "" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ""    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ""
@@ -106,6 +111,10 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'plasticboy/vim-markdown'
 Plug 'gikmx/vim-ctrlposession'
+Plug 'vimwiki/vimwiki'
+"Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+"Plug 'michal-h21/vim-zettel'
 call plug#end()
 
 " ================ Scrolling ========================
@@ -172,18 +181,26 @@ let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_timeout = 5
 
 " Don't autoselect first omnicomplete option, show options even if there is only
-" one (so the preview documentation is accessible). Remove 'preview' if you
-" don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
+" one (so the preview documentation is accessible). Remove 'preview', 'popup'
+" and 'popuphidden' if you don't want to see any documentation whatsoever.
+" Note that neovim does not support `popuphidden` or `popup` yet:
+" https://github.com/neovim/neovim/issues/10996
+if has('patch-8.1.1880')
+  set completeopt=longest,menuone,popuphidden
+  " Highlight the completion documentation popup background/foreground the same as
+  " the completion menu itself, for better readability with highlighted
+  " documentation.
+  set completepopup=highlight:Pmenu,border:off
+else
+  set completeopt=longest,menuone,preview
+  " Set desired preview window height for viewing documentation.
+  set previewheight=5
+endif
 
 " Fetch full documentation during omnicomplete requests.
 " By default, only Type/Method signatures are fetched. Full documentation can
 " still be fetched when you need it with the :OmniSharpDocumentation command.
 "let g:omnicomplete_fetch_full_documentation = 1
-
-" Set desired preview window height for viewing documentation.
-" You might also want to look at the echodoc plugin.
-set previewheight=5
 
 " Update semantic highlighting on BufEnter and InsertLeave
 let g:OmniSharp_highlight_types = 2
@@ -310,3 +327,9 @@ nnoremap <Leader>ss :CtrlPObsession<CR>
 
 set colorcolumn=120
 hi ColorColumn ctermbg=darkgrey guibg=grey12
+
+" Vim Wiki
+let g:vimwiki_list = [{'path': 'C:\Users\russ\SynologyDrive\wiki', 'syntax': 'markdown', 'ext': '.md'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+nmap <C-P> :FZF<CR>

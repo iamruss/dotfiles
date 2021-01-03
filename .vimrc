@@ -94,8 +94,8 @@ Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
 if(has("gui_running"))
 Plug 'SirVer/ultisnips'
-endif
 Plug 'honza/vim-snippets'
+endif
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -214,6 +214,7 @@ augroup omnisharp_commands
 
     " Finds members in the current buffer
     autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>ca :OmniSharpGetCodeActions<CR>
 
     autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>

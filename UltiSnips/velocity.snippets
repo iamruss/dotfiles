@@ -3,7 +3,7 @@ snippet nvr "add new version flag" b
 endsnippet
 
 snippet s "set variable" b
-#set(\$${1:varName} = ${2:varValue})
+#set (\$${1:varName} = ${2:varValue})
 endsnippet
 
 snippet wid "widget Unique Id" i
@@ -11,7 +11,7 @@ snippet wid "widget Unique Id" i
 endsnippet
 
 snippet sid "set UniqueId" b
-#set(\$${1:name}Id = $core_v2_widget.UniqueId('$1'))
+#set (\$${1:name}Id = $core_v2_widget.UniqueId('$1'))
 endsnippet
 
 snippet descr "Describe in format" b
@@ -38,12 +38,24 @@ snippet gr "$core_v2_encoding.JavascriptEncode()" i
 $core_v2_language.GetResource("$1")
 endsnippet
 
+snippet ef "$core_v2_widget.ExecuteFile()" i
+$core_v2_widget.ExecuteFile('$1.vm')
+endsnippet
+
 snippet gefu "$core_v2_widget.GetExecutedFileUrl()" i
 $core_v2_widget.GetExecutedFileUrl("$1")
 endsnippet
 
 snippet hae "HtmlAttributeEncode" i
 $core_v2_encoding.HtmlAttributeEncode($1)
+endsnippet
+
+snippet ahr "<a href></a>"
+<a href="$2">$1</a>
+endsnippet
+
+snippet liahr "<li><a href></a></li>"
+<li><a href="$2">$1</a></li>
 endsnippet
 
 snippet here "Prints HERE in h1 for Debugging"
@@ -66,4 +78,8 @@ snippet reopctx "#registerEndOfPageHtml context" b
 	});
 </script>
 #end
+endsnippet
+
+snippet res "widget resource" b
+<resource name="${1:ResourceId}">${2:ResourceString}</resource>
 endsnippet

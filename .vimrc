@@ -2,10 +2,14 @@
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
-"include local tweaks (e.g. path for specific python versions like
-""set pythonthreedll=python39.dll
-""set pythonthreehome=C:\\Python39\\
-source ~/.localrc.vim
+"" Use instead of vimfiles on windows - Must be at the top so plugins work 
+"" This is useful if vim runs on a system where it cannot create temp files, so redirec them to user's home folder
+"if has('win32') || has ('win64')
+"    set runtimepath ^=$HOME\.vim ", $HOME/vimfiles,$VIMRUNTIME,$VIM,$HOME/vimfiles/after,$HOME/.vim/after
+"    let $TMP="$HOME/.vimundo" "Set temp file to write-able directory
+"    let $TEMP="$HOME/.vimundo" "Set temp file to write-able directory
+"    set fileformats=unix,dos,mac
+"endif
 
 lan mes en_US.UTF-8
 set langmenu=en
@@ -90,17 +94,19 @@ Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
 if(has("gui_running"))
 Plug 'SirVer/ultisnips'
-endif
 Plug 'honza/vim-snippets'
+endif
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'ap/vim-css-color'
+Plug 'dhruvasagar/vim-prosession'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'skammer/vim-css-color'
 "Plug 'hail2u/vim-css3-syntax'
@@ -327,9 +333,19 @@ nnoremap <Leader>ss :CtrlPObsession<CR>
 
 set colorcolumn=120
 hi ColorColumn ctermbg=darkgrey guibg=grey12
+" ----- easymotion settings ------
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" " `f{char}{label}`
+nmap f <Plug>(easymotion-overwin-f)
+" " Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+let g:NERDCreateDefaultMappings = 0
+let g:NERDToggleCheckAllLines = 1
+map <Leader>cc <plug>NERDCommenterToggle
 
 " Vim Wiki
 let g:vimwiki_list = [{'path': 'C:\Users\russ\SynologyDrive\wiki', 'syntax': 'markdown', 'ext': '.md'}]
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
-
-nmap <C-P> :FZF<CR>

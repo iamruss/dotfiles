@@ -4,12 +4,19 @@
 
 "" Use instead of vimfiles on windows - Must be at the top so plugins work 
 "" This is useful if vim runs on a system where it cannot create temp files, so redirec them to user's home folder
-"if has('win32') || has ('win64')
-"    set runtimepath ^=$HOME\.vim ", $HOME/vimfiles,$VIMRUNTIME,$VIM,$HOME/vimfiles/after,$HOME/.vim/after
-"    let $TMP="$HOME/.vimundo" "Set temp file to write-able directory
-"    let $TEMP="$HOME/.vimundo" "Set temp file to write-able directory
-"    set fileformats=unix,dos,mac
-"endif
+if has('win32') || has ('win64')
+    set runtimepath ^=$HOME\.vim ", $HOME/vimfiles,$VIMRUNTIME,$VIM,$HOME/vimfiles/after,$HOME/.vim/after
+    let $TMP="$HOME/.vimundo" "Set temp file to write-able directory
+    let $TEMP="$HOME/.vimundo" "Set temp file to write-able directory
+    set fileformats=unix,dos,mac
+endif
+
+if !empty("$HOME/.localrc.vim")
+    "include local tweaks (e.g. path for specific python versions like
+    ""set pythonthreedll=python39.dll
+    ""set pythonthreehome=C:\\Python39\\
+    source $HOME/.localrc.vim
+endif
 
 lan mes en_US.UTF-8
 set langmenu=en

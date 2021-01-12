@@ -110,12 +110,12 @@ Plug 'dhruvasagar/vim-prosession'
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
 Plug 'easymotion/vim-easymotion'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'plasticboy/vim-markdown'
 Plug 'gikmx/vim-ctrlposession'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 "Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 "Plug 'michal-h21/vim-zettel'
@@ -135,18 +135,18 @@ set smartcase       " ...unless we type a capital
 "===================Colorscheme=======================
 if has("win32")
     "set guifont=Iosevka_SS05:h14:cRUSSIAN:qDRAFT
-    set guifont=Iosevka_SS05:h14:cRUSSIAN
+    set guifont=Iosevka_Term_SS05:h14:cRUSSIAN
 elseif has("gui_macvim")
     set guifont=Iosevka-SS05-Medium:h18
 endif
 set t_Co=256
-set background=dark
+"set background=dark
 "set background=light
-let g:solarized_hitrail=1    "default value is 0
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibility="high"    "default value is normal
-colorscheme solarized
-"colorschem xoria256
+"let g:solarized_hitrail=1    "default value is 0
+"let g:solarized_contrast="high"    "default value is normal
+"let g:solarized_visibility="high"    "default value is normal
+"colorscheme solarized
+colorschem xoria256
 "colorscheme desert
 
 imap jj <ESC>
@@ -314,23 +314,27 @@ let g:ctrlp_working_path_mode = 'ra'
 "CtrlP no using git ls-files
 "let g:ctrlp_working_path_mode = 'a'
 
-if has("win32")
+if executable('rg')
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+    "else
+    "let g:ctrlp_clear_cache_on_exit = 0
+    "endif
     " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-    if executable('ag')
-      " Use Ag over Grep
-      set grepprg=ag\ --nogroup\ --nocolor
+elseif executable('ag')
+    " Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
 
-      " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " --ignore filestorage'
-  else
-      let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-
-    endif
-
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " --ignore filestorage'
 else
-    let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+    if has("win32")
+        let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+    else
+        let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+    endif
 endif
-
 "Airline
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#keymap#enabled = 0
@@ -395,3 +399,8 @@ map <Leader>cc <plug>NERDCommenterToggle
 " Vim Wiki
 let g:vimwiki_list = [{'path': 'C:\Users\russ\SynologyDrive\wiki', 'syntax': 'markdown', 'ext': '.md'}]
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+"toggle display of whitespace
+noremap <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>

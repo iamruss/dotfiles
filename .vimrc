@@ -90,10 +90,10 @@ nnoremap P P=`]<C-o>
 call plug#begin('~/.vim/plugged')
 Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
-if(has("gui_running"))
+"if(has("gui_running"))
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-endif
+"endif
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -135,7 +135,7 @@ set smartcase       " ...unless we type a capital
 "===================Colorscheme=======================
 if has("win32")
     "set guifont=Iosevka_SS05:h14:cRUSSIAN:qDRAFT
-    set guifont=Iosevka_Term_SS05:h14:cRUSSIAN
+    set guifont=Iosevka_Term_SS05_SmBdEx:h14:cRUSSIAN
 elseif has("gui_macvim")
     set guifont=Iosevka-SS05-Medium:h18
 endif

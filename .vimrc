@@ -404,3 +404,9 @@ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
 cnoremap <F5> <C-c>:set list!<CR>
+
+"toggle display of whitespace
+noremap <F6> :set wrap!<CR>
+inoremap <F6> <C-o>:set wrap!<CR>
+cnoremap <F6> <C-c>:set wrap!<CR>
+

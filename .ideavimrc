@@ -1,0 +1,53 @@
+"source ~/.vimrcset 
+set nowrap
+set linebreak
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+set scrolloff=5         "Start scrolling when we're 3 lines away from margins
+set sidescrolloff=10
+set sidescroll=1
+
+" ================ Search ===========================
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
+imap jj <ESC>
+
+"noremap <Up>    <Nop>
+"noremap <Left>  <Nop>
+"noremap <Down>  <Nop>
+"noremap <Right> <Nop>
+"
+"inoremap <Up>    <Nop>
+"inoremap <Left>  <Nop>
+"inoremap <Down>  <Nop>
+"inoremap <Right> <Nop>
+
+set ideajoin
+set easymotion
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+set number
+set relativenumber
+
+set surround "Commands: ys, cs, ds, S
+"if you want to optimize highlight duration, assign a time in milliseconds:
+let g:highlightedyank_highlight_duration = "1000"
+"A negative number makes the highlight persistent.
+"let g:highlightedyank_highlight_duration = "-1"
+"if you want to change background color of highlight you can provide the rgba of the color you want e.g.
+"let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+set highlightedyank
+
+set ReplaceWithRegister
+set commentary "Commands: gcc, gc + motion, v_gc
+set exchange "Commands: cx, cxx, X, cxc

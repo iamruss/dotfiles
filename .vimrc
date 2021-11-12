@@ -427,3 +427,8 @@ noremap <F6> :set wrap!<CR>
 inoremap <F6> <C-o>:set wrap!<CR>
 cnoremap <F6> <C-c>:set wrap!<CR>
 
+if !empty("$HOME/.localrc")
+    "include local tweaks (e.g. path for specific python versions like
+    source $HOME/.localrc
+endif
+

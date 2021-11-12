@@ -415,10 +415,6 @@ let g:NERDCreateDefaultMappings = 0
 let g:NERDToggleCheckAllLines = 1
 map <Leader>cc <plug>NERDCommenterToggle
 
-" Vim Wiki
-let g:vimwiki_list = [{'path': 'C:\Users\russ\SynologyDrive\wiki', 'syntax': 'markdown', 'ext': '.md'}]
-au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
-
 "toggle display of whitespace
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>

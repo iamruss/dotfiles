@@ -30,7 +30,7 @@ imap jj <ESC>
 "inoremap <Left>  <Nop>
 "inoremap <Down>  <Nop>
 "inoremap <Right> <Nop>
-
+map <C-x> <Nop>
 set ideajoin
 set easymotion
 " Turn on case insensitive feature
@@ -51,3 +51,5 @@ set highlightedyank
 set ReplaceWithRegister
 set commentary "Commands: gcc, gc + motion, v_gc
 set exchange "Commands: cx, cxx, X, cxc
+set showmode
+

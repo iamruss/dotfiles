@@ -90,14 +90,15 @@ nnoremap P P=`]<C-o>
 call plug#begin('~/.vim/plugged')
 Plug 'lepture/vim-velocity'
 Plug 'scrooloose/nerdcommenter'
-"if(has("gui_running"))
+if(has("gui_running"))
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"endif
+endif
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-repeat'
@@ -135,9 +136,11 @@ set smartcase       " ...unless we type a capital
 "===================Colorscheme=======================
 if has("win32")
     "set guifont=Iosevka_SS05:h14:cRUSSIAN:qDRAFT
-    set guifont=Iosevka_Term_SS05_SmBdEx:h14:cRUSSIAN
+    "set guifont=Iosevka_Term_SS05_SmBdEx:h14:cRUSSIAN
+    set guifont=JetBrains_Mono:h14:cRUSSIAN
 elseif has("gui_macvim")
-    set guifont=Iosevka-SS05-Medium:h18
+    "set guifont=Iosevka-SS05-Medium:h18
+    set guifont=JetBrains_Mono:h18
 endif
 set t_Co=256
 "set background=dark
@@ -150,6 +153,18 @@ colorschem xoria256
 "colorscheme desert
 
 imap jj <ESC>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %I:%M:%S")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %I:%M:%S")<CR>
+
+menu Encoding.koi8-r :e ++enc=koi8-r ++ff=unix<CR>
+menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=dos<CR>
+menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<CR>
+menu Encoding.utf-8 :e ++enc=utf8<CR>
+menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
+
+map <F8> :emenu Encoding.
 
 filetype indent plugin on
 let g:ale_fix_on_save = 1
@@ -159,10 +174,12 @@ let g:ale_linters = {
 \   'javascript':   ['eslint'],
 \ }
 let g:ale_fixers = {
+\   'cs': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript':   ['prettier'],
 \   'less':         ['prettier'],
 \   'css':          ['prettier'],
 \}
+let g:ale_fix_on_save = 1
 
 if(has('gui_running'))
     let g:ale_sign_error = '❌'
@@ -340,7 +357,7 @@ endif
 let g:airline#extensions#keymap#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#obsession#enabled = 1
-
+let g:airline_theme='bubblegum'
 "vim-css-color
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 

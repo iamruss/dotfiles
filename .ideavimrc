@@ -52,4 +52,5 @@ set ReplaceWithRegister
 set commentary "Commands: gcc, gc + motion, v_gc
 set exchange "Commands: cx, cxx, X, cxc
 set showmode
+map <C-a> <Nop>
 

@@ -6,13 +6,12 @@
 - clean: ['~']
 
 - create:
-    - ~/.vim/autoload
     - ~/.vim/backup
     - ~/.vim/swap
     - ~/.vim/undo
 
 - link:
-    ~/.vim/autoload/plug.vim: plug.vim
+    ~/vimfiles/autoload/plug.vim: plug.vim
     ~/.bash_profile: .bash_profile
     ~/.ideavimrc: .ideavimrc
     ~/.ignore: .ignore

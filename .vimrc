@@ -182,9 +182,9 @@ source ~/.dotfiles/plugins/ultisnips.vim
 source ~/.dotfiles/plugins/less.vim
 source ~/.dotfiles/plugins/css-color.vim
 
-let deviceSpecificRc = fnamemodify(expand("$MYVIMRC"), ":p:h") . '\.localrc.vim'
+let deviceSpecificRc = fnameescape(fnamemodify(expand("$MYVIMRC"), ":p:h") . '\.localrc.vim')
 if !empty(glob(deviceSpecificRc))
-    source fnameescape(deviceSpecificRc)
+    exec "source " . deviceSpecificRc
 endif
 
 call plug#end()

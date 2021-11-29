@@ -1,6 +1,6 @@
 BoldAsFont=yes
 FontHeight=14
-Columns=200
+Columns=120
 Rows=48
 Font=Iosevka Term SS05 Extended
 ThemeFile=flat-ui

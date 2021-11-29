@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- create:
+    - ~/.vim/autoload
+    - ~/.vim/backup
+    - ~/.vim/swap
+    - ~/.vim/undo
+
+- link:
+    ~/.vim/autoload/plug.vim: plug.vim
+    ~/.bash_profile: .bash_profile
+    ~/.ideavimrc: .ideavimrc
+    ~/.ignore: .ignore
+    ~/.minttyrc: .minttyrc
+    ~/.vimrc: .vimrc
+
+#- shell:
+  #- [git submodule update --init --recursive, Installing submodules]
+

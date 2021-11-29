@@ -9,7 +9,6 @@
     "source $HOME/.localrc.vim
 "endif
 
-
 lan mes en_US.UTF-8
 set langmenu=en
 set encoding=utf-8
@@ -40,13 +39,20 @@ set mouse=a
 set nojoinspaces
 set splitright
 set confirm
-set noswapfile
-set nobackup
-set nowritebackup
 set nowrap
 set linebreak
 set scrolloff=8
 set sidescroll=8
+
+"undo
+set undodir=~/.vim/undo
+set undofile
+"swap
+set swapfile
+set directory=~/.vim/swap
+"backup
+set backup
+set backupdir=~/.vim/backup
 
 set colorcolumn=120
 highlight ColorColumn ctermbg=238 guibg=grey

@@ -9,6 +9,7 @@
     "source $HOME/.localrc.vim
 "endif
 
+
 lan mes en_US.UTF-8
 set langmenu=en
 set encoding=utf-8
@@ -77,11 +78,6 @@ set expandtab
 "nnoremap p p=`]<C-o>
 "nnoremap P P=`]<C-o>
 
-
-"set scrolloff=5         "Start scrolling when we're 3 lines away from margins
-"set sidescrolloff=10
-"set sidescroll=1
-
 "" ================ Search ===========================
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
@@ -99,14 +95,6 @@ elseif has("gui_macvim")
     "set guifont=JetBrains_Mono:h18
 endif
 set t_Co=256
-
-""set background=dark
-""set background=light
-""let g:solarized_hitrail=1    "default value is 0
-""let g:solarized_contrast="high"    "default value is normal
-""let g:solarized_visibility="high"    "default value is normal
-""colorscheme solarized
-"colorschem xoria256
 
 if(has('gui_running'))
     set lines=35
@@ -155,57 +143,9 @@ menu Encoding.utf-8 :e ++enc=utf8<CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 "map <F8> :emenu Encoding.
 
-"filetype indent plugin on
-"let g:ale_fix_on_save = 1
-"let g:ale_linters_explicit = 1
-"let g:ale_linters = {
-"\   'cs':           ['OmniSharp'],
-"\   'javascript':   ['eslint'],
-"\ }
-"let g:ale_fixers = {
-"\   'cs': ['remove_trailing_lines', 'trim_whitespace'],
-"\   'javascript':   ['prettier'],
-"\   'less':         ['prettier'],
-"\   'css':          ['prettier'],
-"\}
-"let g:ale_fix_on_save = 1
-
-"if(has('gui_running'))
-    "let g:ale_sign_error = '❌'
-    "let g:ale_sign_warning = '⚠️'
-"endif
-
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-""let g:UltiSnipsJumpForwardTrigger="<c-b>"
-""let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsJumpForwardTrigger='<tab>'  " tried <c-j> and failed too
-"let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-"let g:MyUltiSnipsSnippetsHome = fnamemodify(expand("$MYVIMRC"), ":p:h")
-"let g:UltiSnipsSnippetDirectories = [ MyUltiSnipsSnippetsHome.'/.dotfiles/UltiSnips', 'UltiSnips']
-"let g:UltiSnipsEditSplit="vertical"
-
 ""vim-css-color
 "let g:cssColorVimDoNotMessMyUpdatetime = 1
 
-
-"" ----- easymotion settings ------
-"let g:EasyMotion_do_mapping = 0 " Disable default mappings
-"" Jump to anywhere you want with minimal keystrokes, with just one key
-"" binding.
-"" " `f{char}{label}`
-"nmap f <Plug>(easymotion-overwin-f)
-"" " Turn on case insensitive feature
-"let g:EasyMotion_smartcase = 1
-
-"let g:NERDCreateDefaultMappings = 0
-"let g:NERDToggleCheckAllLines = 1
-"map <Leader>cc <plug>NERDCommenterToggle
-
-""toggle display of whitespace
-"noremap <F6> :set wrap!<CR>
-"inoremap <F6> <C-o>:set wrap!<CR>
-"cnoremap <F6> <C-c>:set wrap!<CR>
 
 "if !empty("$HOME/.localrc")
     ""include local tweaks (e.g. path for specific python versions like
@@ -238,16 +178,15 @@ source ~/.dotfiles/plugins/ale.vim
 source ~/.dotfiles/plugins/editorconfig.vim
 source ~/.dotfiles/plugins/dracula.vim
 "source ~/.dotfiles/plugins/omnisharp.vim
-source ~/.dotfiles/plugins/battery.vim
-"let g:battery#update_tabline = 1    " For tabline.
-let g:battery#update_statusline = 1 " For statusline.
-""Plug 'tpope/vim-unimpaired'
-"if(has("gui_running"))
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-"endif
-"Plug 'ap/vim-css-color'
-"Plug 'groenewege/vim-less'
+source ~/.dotfiles/plugins/ultisnips.vim
+source ~/.dotfiles/plugins/less.vim
+source ~/.dotfiles/plugins/css-color.vim
+
+let deviceSpecificRc = fnamemodify(expand("$MYVIMRC"), ":p:h") . '\.localrc.vim'
+if !empty(glob(deviceSpecificRc))
+    source fnameescape(deviceSpecificRc)
+endif
+
 call plug#end()
 "fire event to notify plugins were loaded - set dracula theme for example, see ~/.dotfiles/plugins/dracula.vim
 doautocmd User PlugLoaded

@@ -38,10 +38,7 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#keymap#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#obsession#enabled = 1
-let g:airline#extensions#battery#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:battery#update_tabline = 0
-let g:battery#update_statusline = 1
-let g:airline_theme='base16_harmonic16'
+let g:airline_theme='molokai'
 "let g:airline_theme='luna'
 

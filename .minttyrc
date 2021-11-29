@@ -1,9 +1,9 @@
 BoldAsFont=yes
-FontHeight=12
+FontHeight=14
 Columns=200
 Rows=48
 Font=Iosevka Term SS05 Extended
-ThemeFile=dracula
+ThemeFile=flat-ui
 Transparency=off
 OpaqueWhenFocused=yes
 FontSmoothing=full

@@ -11,7 +11,8 @@
     - ~/.vim/undo
 
 - link:
-    ~/vimfiles/autoload/plug.vim: plug.vim
+    ~/vimfiles/autoload/plug.vim: plug.vim  # Windows shell
+    ~/.vim/autoload/plug.vim: plug.vim      # Git Bash shell
     ~/.bash_profile: .bash_profile
     ~/.ideavimrc: .ideavimrc
     ~/.ignore: .ignore

@@ -33,7 +33,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = '☰'
 let g:airline_symbols.dirty='⚡'
-
+let g:airline#extensions#obsession#indicator_text = '₽' "'￡'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#keymap#enabled = 0
 let g:airline#extensions#ale#enabled = 1

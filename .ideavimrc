@@ -1,4 +1,4 @@
-"source ~/.vimrcset 
+"source ~/.vimrcset
 set nowrap
 set linebreak
 set autoindent
@@ -20,6 +20,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 imap jj <ESC>
+imap ;; ;<ESC>
 
 "noremap <Up>    <Nop>
 "noremap <Left>  <Nop>
@@ -52,5 +53,4 @@ set ReplaceWithRegister
 set commentary "Commands: gcc, gc + motion, v_gc
 set exchange "Commands: cx, cxx, X, cxc
 set showmode
-map <C-a> <Nop>
 

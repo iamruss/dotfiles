@@ -20,7 +20,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 imap jj <ESC>
-imap ;; ;<ESC>
+"imap ;; ;<ESC>
 
 "noremap <Up>    <Nop>
 "noremap <Left>  <Nop>
@@ -36,6 +36,7 @@ set ideajoin
 set easymotion
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+"nnoremap <Space><Space> :action AceAction<CR>
 
 set number
 set relativenumber

@@ -116,7 +116,7 @@ set guioptions-=R
 " Keymaps
 "--------------------------------------------------------
 
-let mapleader = "\<space>"
+"let mapleader = "\<space>"
 
 imap jj <ESC>
 imap ;; <ESC>A;<ESC>

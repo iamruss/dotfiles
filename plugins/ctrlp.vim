@@ -7,8 +7,9 @@ let g:ctrlp_working_path_mode = 'ra'
 
 if executable('rg')
     set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
+    let g:ctrlp_user_command = '[ $PWD == $HOME ] && echo "In HOME Directory" ||rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 1
+    let g:ctrlp_clear_cache_on_exit = 0
 elseif executable('ag')
     " Use Ag over Grep
     set grepprg=ag\ --nogroup\ --nocolor

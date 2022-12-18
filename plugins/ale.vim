@@ -1,7 +1,7 @@
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'branch': 'release/0.x'
-  \ }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install --frozen-lockfile --production',
+"   \ 'branch': 'release/0.x'
+"   \ }
 
 Plug 'w0rp/ale'
 filetype indent plugin on

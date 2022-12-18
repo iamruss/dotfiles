@@ -19,7 +19,7 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-imap jj <ESC>
+"imap jj <ESC>
 "imap ;; ;<ESC>
 
 "noremap <Up>    <Nop>
@@ -33,9 +33,9 @@ imap jj <ESC>
 "inoremap <Right> <Nop>
 map <C-x> <Nop>
 set ideajoin
-set easymotion
+"set easymotion
 " Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_smartcase = 1
 "nnoremap <Space><Space> :action AceAction<CR>
 
 set number
@@ -51,7 +51,16 @@ let g:highlightedyank_highlight_duration = "1000"
 set highlightedyank
 
 set ReplaceWithRegister
-set commentary "Commands: gcc, gc + motion, v_gc
+
 set exchange "Commands: cx, cxx, X, cxc
 set showmode
+
+"sethandler <C-R> i:vim
+
+"Commands: gcc, gc + motion, v_gc
+set commentary 
+autocmd FileType cs setlocal commentstring=//\ %s
+set showcmd
+set visualbell
+set noerrorbells
 

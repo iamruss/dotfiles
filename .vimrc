@@ -149,6 +149,10 @@ menu Encoding.utf-8 :e ++enc=utf8<CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 "map <F8> :emenu Encoding.
 
+"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+filetype plugin indent on
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType velocity setlocal shiftwidth=4 softtabstop=4 expandtab
 ""vim-css-color
 "let g:cssColorVimDoNotMessMyUpdatetime = 1
 
@@ -168,7 +172,9 @@ menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 source ~/.dotfiles/plugins/airline.vim
-source ~/.dotfiles/plugins/nerdcommenter.vim
+source ~/.dotfiles/plugins/commentary.vim
+"source ~/.dotfiles/plugins/nerdcommenter.vim
+source ~/.dotfiles/plugins/vim-jsx.vim
 source ~/.dotfiles/plugins/vim-obsession.vim
 source ~/.dotfiles/plugins/ctrlp.vim
 source ~/.dotfiles/plugins/vim-velocity.vim
@@ -182,18 +188,29 @@ source ~/.dotfiles/plugins/vim-repeat.vim
 source ~/.dotfiles/plugins/vim-unimpaired.vim
 source ~/.dotfiles/plugins/ale.vim
 source ~/.dotfiles/plugins/editorconfig.vim
-source ~/.dotfiles/plugins/dracula.vim
+"source ~/.dotfiles/plugins/dracula.vim
 "source ~/.dotfiles/plugins/omnisharp.vim
 source ~/.dotfiles/plugins/ultisnips.vim
 source ~/.dotfiles/plugins/less.vim
 source ~/.dotfiles/plugins/css-color.vim
+source ~/.dotfiles/plugins/highlight-yank.vim
+source ~/.dotfiles/plugins/tender.vim
+
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install --frozen-lockfile --production',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+call plug#end()
+"fire event to notify plugins were loaded - set dracula theme for example, see ~/.dotfiles/plugins/dracula.vim
+"doautocmd User PlugLoaded
+
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme tender
 
 let deviceSpecificRc = fnameescape(fnamemodify(expand("$MYVIMRC"), ":p:h") . '\.localrc.vim')
 if !empty(glob(deviceSpecificRc))
     exec "source " . deviceSpecificRc
 endif
-
-call plug#end()
-"fire event to notify plugins were loaded - set dracula theme for example, see ~/.dotfiles/plugins/dracula.vim
-doautocmd User PlugLoaded
 

@@ -20,6 +20,10 @@ $core_v2_utility.Describe(\$${1:var})
 </pre>
 endsnippet
 
+snippet descrd "Describe in details tag" b
+<details style="background: lightyellow;"><summary style="color:red;cursor:pointer">variable: \\\$${1:varName}</summary><pre class="debug">$core_v2_utility.Describe(\$$1, "%{Format = 'text'}")</pre></details>
+endsnippet
+
 snippet gfv "Get form value"
 #set(\$${1:name} = $core_v2_page.GetFormValue('$1'))
 endsnippet

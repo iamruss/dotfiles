@@ -39,6 +39,5 @@ let g:airline#extensions#keymap#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#obsession#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline_theme='molokai'
+"let g:airline_theme='molokai'
 "let g:airline_theme='luna'
-

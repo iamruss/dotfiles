@@ -121,7 +121,7 @@ set guioptions-=R
 imap jj <ESC>
 imap ;; <ESC>A;<ESC>
 imap ,, <ESC>A,<ESC>
-nmap <S-Enter> O<ESC>
+" nmap <S-Enter> O<ESC>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -195,7 +195,7 @@ source ~/.dotfiles/plugins/less.vim
 source ~/.dotfiles/plugins/css-color.vim
 source ~/.dotfiles/plugins/highlight-yank.vim
 source ~/.dotfiles/plugins/tender.vim
-
+source ~/.dotfiles/plugins/rust.vim
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'yarn install --frozen-lockfile --production',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }

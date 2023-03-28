@@ -84,6 +84,10 @@ snippet reopctx "#registerEndOfPageHtml context" b
 #end
 endsnippet
 
+snippet resp "widget resource paired" b
+<resource name="${1:ResourceId}">$1</resource>
+endsnippet
+
 snippet res "widget resource" b
-<resource name="${1:ResourceId}">${2:ResourceString}</resource>
+<resource name="${1:ResourceId}">${1:ResourceString}</resource>
 endsnippet

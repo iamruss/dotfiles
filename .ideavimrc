@@ -19,6 +19,7 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+
 "imap jj <ESC>
 "imap ;; ;<ESC>
 
@@ -31,6 +32,7 @@ set smartcase       " ...unless we type a capital
 "inoremap <Left>  <Nop>
 "inoremap <Down>  <Nop>
 "inoremap <Right> <Nop>
+map <C-a> <Nop>
 map <C-x> <Nop>
 set ideajoin
 "set easymotion
@@ -63,4 +65,5 @@ autocmd FileType cs setlocal commentstring=//\ %s
 set showcmd
 set visualbell
 set noerrorbells
+set matchit
 

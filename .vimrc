@@ -39,7 +39,7 @@ set mouse=a
 set nojoinspaces
 set splitright
 set confirm
-set nowrap
+" set nowrap
 set linebreak
 set scrolloff=8
 set sidescroll=8
@@ -162,6 +162,10 @@ autocmd FileType velocity setlocal shiftwidth=4 softtabstop=4 expandtab
     "source $HOME/.localrc
 "endif
 
+let g:netrw_banner = 1
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 3
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ To install Plug manager
 """ Non-Windows:
@@ -175,8 +179,8 @@ source ~/.dotfiles/plugins/airline.vim
 source ~/.dotfiles/plugins/commentary.vim
 "source ~/.dotfiles/plugins/nerdcommenter.vim
 source ~/.dotfiles/plugins/vim-jsx.vim
-source ~/.dotfiles/plugins/vim-obsession.vim
-source ~/.dotfiles/plugins/ctrlp.vim
+" source ~/.dotfiles/plugins/vim-obsession.vim
+" source ~/.dotfiles/plugins/ctrlp.vim
 source ~/.dotfiles/plugins/vim-velocity.vim
 source ~/.dotfiles/plugins/vim-vinegar.vim
 source ~/.dotfiles/plugins/vim-surround.vim
@@ -213,4 +217,5 @@ let deviceSpecificRc = fnameescape(fnamemodify(expand("$MYVIMRC"), ":p:h") . '\.
 if !empty(glob(deviceSpecificRc))
     exec "source " . deviceSpecificRc
 endif
-
+set grepprg=rg\ --vimgrep
+set grepformat^=%f:%l:%c:%m

@@ -2,13 +2,6 @@
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
-"if !empty("$HOME/.localrc.vim")
-    ""include local tweaks (e.g. path for specific python versions like
-    """set pythonthreedll=python39.dll
-    """set pythonthreehome=C:\\Python39\\
-    "source $HOME/.localrc.vim
-"endif
-
 lan mes en_US.UTF-8
 set langmenu=en
 set encoding=utf-8
@@ -162,6 +155,8 @@ autocmd FileType velocity setlocal shiftwidth=4 softtabstop=4 expandtab
     "source $HOME/.localrc
 "endif
 
+let g:netrw_banner = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ To install Plug manager
 """ Non-Windows:
@@ -176,7 +171,7 @@ source ~/.dotfiles/plugins/airline.vim
 source ~/.dotfiles/plugins/commentary.vim
 "source ~/.dotfiles/plugins/nerdcommenter.vim
 source ~/.dotfiles/plugins/vim-jsx.vim
-source ~/.dotfiles/plugins/vim-obsession.vim
+" source ~/.dotfiles/plugins/vim-obsession.vim
 " source ~/.dotfiles/plugins/ctrlp.vim
 set path+=**
 source ~/.dotfiles/plugins/vim-velocity.vim
@@ -192,7 +187,7 @@ source ~/.dotfiles/plugins/ale.vim
 source ~/.dotfiles/plugins/editorconfig.vim
 "source ~/.dotfiles/plugins/dracula.vim
 "source ~/.dotfiles/plugins/omnisharp.vim
-" source ~/.dotfiles/plugins/ultisnips.vim
+source ~/.dotfiles/plugins/ultisnips.vim
 source ~/.dotfiles/plugins/less.vim
 source ~/.dotfiles/plugins/css-color.vim
 source ~/.dotfiles/plugins/highlight-yank.vim

@@ -9,8 +9,8 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 
-set scrolloff=5         "Start scrolling when we're 3 lines away from margins
-set sidescrolloff=10
+set scrolloff=5         "Start scrolling when we're 5 lines away from margins
+set sidescrolloff=5
 set sidescroll=1
 
 " ================ Search ===========================

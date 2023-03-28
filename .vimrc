@@ -39,7 +39,7 @@ set mouse=a
 set nojoinspaces
 set splitright
 set confirm
-" set nowrap
+set nowrap
 set linebreak
 set scrolloff=8
 set sidescroll=8
@@ -162,10 +162,6 @@ autocmd FileType velocity setlocal shiftwidth=4 softtabstop=4 expandtab
     "source $HOME/.localrc
 "endif
 
-let g:netrw_banner = 1
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 3
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ To install Plug manager
 """ Non-Windows:
@@ -175,16 +171,18 @@ let g:netrw_banner = 1
 """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
+source ~/.dotfiles/plugins/tender.vim
 source ~/.dotfiles/plugins/airline.vim
 source ~/.dotfiles/plugins/commentary.vim
 "source ~/.dotfiles/plugins/nerdcommenter.vim
 source ~/.dotfiles/plugins/vim-jsx.vim
-" source ~/.dotfiles/plugins/vim-obsession.vim
+source ~/.dotfiles/plugins/vim-obsession.vim
 " source ~/.dotfiles/plugins/ctrlp.vim
+set path+=**
 source ~/.dotfiles/plugins/vim-velocity.vim
 source ~/.dotfiles/plugins/vim-vinegar.vim
 source ~/.dotfiles/plugins/vim-surround.vim
-source ~/.dotfiles/plugins/vim-easymotion.vim
+" source ~/.dotfiles/plugins/vim-easymotion.vim
 source ~/.dotfiles/plugins/vim-fugitive.vim
 source ~/.dotfiles/plugins/vim-markdown.vim
 source ~/.dotfiles/plugins/vim-matchit.vim
@@ -194,12 +192,12 @@ source ~/.dotfiles/plugins/ale.vim
 source ~/.dotfiles/plugins/editorconfig.vim
 "source ~/.dotfiles/plugins/dracula.vim
 "source ~/.dotfiles/plugins/omnisharp.vim
-source ~/.dotfiles/plugins/ultisnips.vim
+" source ~/.dotfiles/plugins/ultisnips.vim
 source ~/.dotfiles/plugins/less.vim
 source ~/.dotfiles/plugins/css-color.vim
 source ~/.dotfiles/plugins/highlight-yank.vim
-source ~/.dotfiles/plugins/tender.vim
 source ~/.dotfiles/plugins/rust.vim
+source ~/.dotfiles/plugins/flutter.vim
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'yarn install --frozen-lockfile --production',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
@@ -219,3 +217,7 @@ if !empty(glob(deviceSpecificRc))
 endif
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-flutter',
+  \ ]

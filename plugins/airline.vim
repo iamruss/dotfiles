@@ -41,3 +41,4 @@ let g:airline#extensions#obsession#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 "let g:airline_theme='molokai'
 "let g:airline_theme='luna'
+let g:airline_theme = 'tender'
